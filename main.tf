@@ -39,7 +39,7 @@ resource "null_resource" "validate_restart_policy" {
 }
 
 data "external" "spec_as_yaml" {
-  program = ["ruby", "${path.module}/helpers/map_to_yaml.rb"]
+  program = ["curl", "-XPOST", "-s", "--data=@-", "${var.json2yaml_endpoint}"]
 
   query = {
     root = "${jsonencode(local.spec)}"

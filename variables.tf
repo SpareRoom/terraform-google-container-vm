@@ -36,3 +36,9 @@ variable "restart_policy" {
 
   default = "OnFailure"
 }
+
+variable "json2yaml_endpoint" {
+  description = "HTTP endpoint to handle JSON to YAML conversion"
+
+  default = "localhost"
+}
