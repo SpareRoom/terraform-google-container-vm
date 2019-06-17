@@ -39,7 +39,7 @@ resource "null_resource" "validate_restart_policy" {
 }
 
 data "external" "spec_as_yaml" {
-  program = ["curl", "-XPOST", "-s", "--data=@-", "${var.json2yaml_endpoint}"]
+  program = ["curl", "-XPOST", "-s", "--data", "@-", "${var.json2yaml_endpoint}"]
 
   query = {
     root = "${jsonencode(local.spec)}"
